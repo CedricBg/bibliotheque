@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="bibliotheque.View.IndexPage"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"  
+             Shell.FlyoutBehavior="Disabled"
+             Shell.NavBarIsVisible="False"
+             Title="Accueil">
+    <VerticalStackLayout>
+        <VerticalStackLayout>
+            <Label 
+      Text="Mes Livres"
+      VerticalOptions="Center" 
+      HorizontalOptions="Start"
+                FontSize="20"
+      Padding="20,10,0,10"
+                FontFamily="RobotoBold"
+                />
+            
+        </VerticalStackLayout>
+        <Line X1="400"
+            Y1="0"
+            X2="0"
+            Y2="0"
+            Stroke="Gray" />
+
+        <Grid 
+            Margin="20"
+            RowSpacing="20"
+            ColumnSpacing="25">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="150" />
+                <RowDefinition Height="150" />
+                <RowDefinition Height="150" />
+
+
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="100" />
+                <ColumnDefinition Width="100" />
+                <ColumnDefinition Width="100" />
+
+            </Grid.ColumnDefinitions>
+            <BoxView  Color="Green" />
+            <Label Grid.Column="0" Text="{Binding Login}"
+               />
+            <BoxView  Grid.Column="1" Color="BlueViolet" />
+            <Button 
+                
+               Grid.Column="1"
+               Text="{Binding Login}"
+               Command="{Binding Path=TestingCommand}"
+               HorizontalOptions="Center"
+               VerticalOptions="Center" />
+
+            <BoxView Grid.Column="2"
+                  Color="Yellow" />
+            <Label Grid.Column="2"
+               Text="Row 0, Column 2"
+               HorizontalOptions="Center"
+               VerticalOptions="Center" />
+
+            <BoxView Grid.Row="1" 
+              Color="Aquamarine" />
+            <Label  Grid.Row="1"
+           Text="Row 1, Column 0"
+           HorizontalOptions="Center"
+           VerticalOptions="Center" />
+        </Grid>
+    </VerticalStackLayout>
+</ContentPage>
