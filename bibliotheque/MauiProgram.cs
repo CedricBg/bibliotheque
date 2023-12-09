@@ -1,15 +1,16 @@
-﻿using bibliotheque.Data.DataAccess;
+﻿
+using bibliotheque.DataAccess.Services;
 using bibliotheque.View;
 using bibliotheque.ViewModel;
 using CommunityToolkit.Maui;
 using Microsoft.Extensions.Logging;
-using Microsoft.Extensions.Configuration;
-using Microsoft.EntityFrameworkCore;
+
 
 namespace bibliotheque
 {
     public static class MauiProgram
     {
+
         public static MauiApp CreateMauiApp()
         {
             var builder = MauiApp.CreateBuilder();
@@ -29,11 +30,9 @@ namespace bibliotheque
             builder.Services.AddSingleton<IndexPageviewModel>();
             builder.Services.AddSingleton<AddBookPageViewModel>();
 
-            builder.Services.AddDbContext<BibliothequeContext>(options =>
-            {
-                options.UseSqlite("Data Source=.\\Data\\bibliotheque",
-                o => o.UseQuerySplittingBehavior(QuerySplittingBehavior.SplitQuery));
-             });
+            builder.Services.AddSingleton<BookService>();
+            builder.Services.AddSingleton<OwnerService>();
+
 
 #if DEBUG
             builder.Logging.AddDebug();

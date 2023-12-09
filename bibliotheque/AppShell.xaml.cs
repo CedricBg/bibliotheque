@@ -7,6 +7,7 @@ namespace bibliotheque
         public AppShell()
         {
             InitializeComponent();
+
             Routing.RegisterRoute(nameof(IndexPage), typeof(IndexPage));
             Routing.RegisterRoute(nameof(AddBookPage), typeof(AddBookPage));
 

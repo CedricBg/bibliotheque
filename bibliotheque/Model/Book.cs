@@ -1,16 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using SQLite;
+using PrimaryKeyAttribute = SQLite.PrimaryKeyAttribute;
 
 namespace bibliotheque.Model
 {
     public class Book
     {
-        [Key]
-        public int Id { get; set; }
+        [PrimaryKey,AutoIncrement]
+        public int BookId { get; set; }
 
         public string? Title { get; set; }
 
@@ -22,6 +18,8 @@ namespace bibliotheque.Model
 
         public string? Type { get; set; }
 
-        public List<string>? CoverPath { get; set; }
+        public string? PublishingHouse { get; set; }
+
+        public string? CoverPath { get; set; } = "default1.png";
     }
 }
