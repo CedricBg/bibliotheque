@@ -20,6 +20,8 @@ namespace bibliotheque.Model
 
         public string? PublishingHouse { get; set; }
 
+
+
         public string? CoverPath { get; set; } = "default1.png";
     }
 }

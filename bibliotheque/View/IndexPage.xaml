@@ -18,7 +18,7 @@
         <VerticalStackLayout
             Margin="0, 10, 0, 0">
             <HorizontalStackLayout
-            Spacing="130"
+            Spacing="110"
             Padding="10,0,0,0"
              >
                 <Label 
@@ -39,11 +39,11 @@
                 Y2="0"
                 Stroke="Gray" />
         </VerticalStackLayout>
-        <FlexLayout JustifyContent="Center" AlignContent="SpaceAround"  Wrap="Wrap" Margin="10"  BindableLayout.ItemsSource="{Binding Books}">
+        <FlexLayout JustifyContent="Center"   Wrap="Wrap" Margin="10"  BindableLayout.ItemsSource="{Binding Books}">
             <BindableLayout.ItemTemplate>
                 <DataTemplate>
-                    <Grid ColumnSpacing="5" RowSpacing="10" ColumnDefinitions="100" 
-                          RowDefinitions="*,*" VerticalOptions="Center"
+                    <Grid  Padding="5"  ColumnDefinitions="100" 
+                          RowDefinitions="100,*" VerticalOptions="Center"
                           HorizontalOptions="Center">
                         <Image  Source="{Binding CoverPath}"/>
                         <Label HorizontalOptions="Center"  Grid.Row="1" Text="{Binding Title}"/>
