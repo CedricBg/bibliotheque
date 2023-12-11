@@ -27,7 +27,7 @@ namespace bibliotheque.ViewModel
 
 
         [RelayCommand]
-        public async void AddBook()
+        public async Task AddBook()
         {
             await Shell.Current.GoToAsync(nameof(AddBookPage)); 
         }

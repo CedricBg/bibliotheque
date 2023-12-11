@@ -4,6 +4,7 @@
              xmlns:model="clr-namespace:bibliotheque.Model"
              x:Class="bibliotheque.View.IndexPage"
              xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"  
+             xmlns:viewmodel="clr-namespace:bibliotheque.ViewModel"
              Shell.FlyoutBehavior="Disabled"
              Shell.NavBarIsVisible="False"
              Title="Accueil">
@@ -39,21 +40,18 @@
                 Y2="0"
                 Stroke="Gray" />
         </VerticalStackLayout>
-        <FlexLayout JustifyContent="Center"   Wrap="Wrap" Margin="10"  BindableLayout.ItemsSource="{Binding Books}">
+        <FlexLayout JustifyContent="Center" Wrap="Wrap" Margin="10"   BindableLayout.ItemsSource="{Binding Books}">
             <BindableLayout.ItemTemplate>
                 <DataTemplate>
-                    <Grid  Padding="5"  ColumnDefinitions="100" 
+                    <Grid Padding="5"  ColumnDefinitions="100" 
                           RowDefinitions="100,*" VerticalOptions="Center"
                           HorizontalOptions="Center">
-                        <Image  Source="{Binding CoverPath}"/>
+                        <ImageButton  Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:IndexPageviewModel}}, Path=AddBookCommand}" Source="{Binding CoverPath}"/>
                         <Label HorizontalOptions="Center"  Grid.Row="1" Text="{Binding Title}"/>
                     </Grid>
                 </DataTemplate>
             </BindableLayout.ItemTemplate>
-            
-            
         </FlexLayout>
-
         <Button 
             Text="Ajouter un livre"
                 Command="{Binding Path=AddBookCommand}"
